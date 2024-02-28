@@ -1,0 +1,53 @@
+<toolkit:Popup xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+               xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+               x:Class="MauiButtonAlignBug.TestPopup"
+               Color="Transparent">
+    <Border BackgroundColor="White" x:Name="MainBorder" WidthRequest="300">
+        <Border.StrokeShape>
+            <RoundRectangle CornerRadius="6" />
+        </Border.StrokeShape>
+        <VerticalStackLayout Padding="20" Spacing="10">
+            <Grid>
+                <Label Text="Header" Style="{StaticResource Title}" HorizontalOptions="Start" FontSize="20" />
+                <ImageButton WidthRequest="40" HeightRequest="40" Source="dotnet_bot.png" Padding="6" CornerRadius="12" HorizontalOptions="End" />
+            </Grid>
+
+            <Border BackgroundColor="White" Stroke="Black" Padding="10" IsVisible="{OnPlatform False, iOS=true}">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="6" />
+                </Border.StrokeShape>
+                <Grid>
+                    <Image Source="apple.png" HeightRequest="30" HorizontalOptions="Start" VerticalOptions="Center" />
+                    <Label Text="Apple" TextColor="Black" HorizontalOptions="Center" VerticalOptions="Center"  />
+                </Grid>
+            </Border>
+
+            <Border BackgroundColor="White" Stroke="#CFCFCF" Padding="10">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="6" />
+                </Border.StrokeShape>
+                <Grid>
+                    <Image Source="dotnet_bot.png" HeightRequest="30" HorizontalOptions="Start" VerticalOptions="Center" />
+                    <Label Text="Login 1" TextColor="Black" HorizontalOptions="Center" VerticalOptions="Center" />
+                </Grid>
+            </Border>
+
+            <Border BackgroundColor="#1877F2" Stroke="#1877F2" Padding="10" IsVisible="{OnPlatform True, iOS=false}">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="6" />
+                </Border.StrokeShape>
+                <Grid>
+                    <Image Source="dotnet_bot.png" HeightRequest="30" HorizontalOptions="Start" VerticalOptions="Center" />
+                    <Label Text="Login 2" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center"  />
+                </Grid>
+            </Border>
+
+            <Label Text="OR" HorizontalOptions="Center" />
+            <Button HeightRequest="50" Style="{StaticResource PrimaryButton}" Text="NOT CENTERED" />
+
+            <Button Text="Text" FontSize="10"  HorizontalOptions="Center" BorderColor="Transparent" BackgroundColor="Transparent" 
+                TextColor="Black" />
+        </VerticalStackLayout>
+    </Border>
+</toolkit:Popup>
